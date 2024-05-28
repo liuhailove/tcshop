@@ -293,4 +293,47 @@ public class TcTalkController {
         jsonObject.put("result", personalizedPrivateContents);
         return jsonObject;
     }
+
+    @RequestMapping(value = "top/playlist/highquality", method = RequestMethod.GET)
+    @ResponseBody
+    public JSONObject highquality(@RequestParam(required = false) Integer limit,@RequestParam(required = false)Integer before,@RequestParam String cat) {
+        PlayListDetail playListDetail = new PlayListDetail();
+        playListDetail.setId(1);
+        playListDetail.setName("playListDetail1");
+        playListDetail.setCoverImgUrl("http://localhost:8080/images/geshou1.jpg");
+        playListDetail.setPlayCount(9999);
+        PlayListDetailCreator creator1=new PlayListDetailCreator();
+        creator1.setNickname("creator1");
+        playListDetail.setCreator(creator1);
+
+
+        PlayListDetail playListDetail2 = new PlayListDetail();
+        playListDetail2.setId(1);
+        playListDetail2.setName("playListDetail1");
+        playListDetail2.setCoverImgUrl("http://localhost:8080/images/geshou2.jpg");
+        playListDetail2.setPlayCount(99799);
+        PlayListDetailCreator creator2=new PlayListDetailCreator();
+        creator2.setNickname("creator2");
+        playListDetail2.setCreator(creator2);
+
+        PlayListDetail playListDetail3 = new PlayListDetail();
+        playListDetail3.setId(1);
+        playListDetail3.setName("playListDetail1");
+        playListDetail3.setCoverImgUrl("http://localhost:8080/images/geshou3.jpg");
+        playListDetail3.setPlayCount(99989);
+        PlayListDetailCreator creator3=new PlayListDetailCreator();
+        creator3.setNickname("creator3");
+        playListDetail3.setCreator(creator3);
+
+        List<PlayListDetail> playListDetails=new ArrayList<>();
+        playListDetails.add(playListDetail);
+        playListDetails.add(playListDetail2);
+        playListDetails.add(playListDetail3);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("playlists", playListDetails);
+        jsonObject.put("total",100);
+        jsonObject.put("more",true);
+        jsonObject.put("lasttime",System.currentTimeMillis());
+        return jsonObject;
+    }
 }

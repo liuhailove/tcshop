@@ -21,11 +21,11 @@ public class PlayListController {
         playListDetail.setId(1);
         playListDetail.setCoverImgUrl("http://localhost:8080/images/huli.jpeg");
         playListDetail.setName("playListDetailName");
-        PlayListDetailCreator creator=new PlayListDetailCreator();
+        PlayListDetailCreator creator = new PlayListDetailCreator();
         creator.setAvatarUrl("http://localhost:8080/images/hamburger.png");
         creator.setNickname("hamburger");
         playListDetail.setCreator(creator);
-        List<String> tags=new ArrayList<>();
+        List<String> tags = new ArrayList<>();
         tags.add("tag1");
         tags.add("tag2");
         tags.add("tag3");
@@ -45,16 +45,16 @@ public class PlayListController {
         song.setName("song1");
         song.setMv(10);
         List<SongAr> ars = new ArrayList<>();
-        SongAr songAr=new SongAr();
+        SongAr songAr = new SongAr();
         songAr.setId(1);
         songAr.setName("songAr1");
-        SongAr songAr2=new SongAr();
+        SongAr songAr2 = new SongAr();
         songAr2.setId(2);
         songAr2.setName("songAr2");
         ars.add(songAr);
         ars.add(songAr2);
         song.setAr(ars);
-        SongAl al=new SongAl();
+        SongAl al = new SongAl();
         al.setId(1);
         al.setName("al1");
         song.setAl(al);
@@ -66,16 +66,16 @@ public class PlayListController {
         song2.setName("song2");
         song2.setMv(10);
         List<SongAr> ars2 = new ArrayList<>();
-        SongAr songAr21=new SongAr();
+        SongAr songAr21 = new SongAr();
         songAr21.setId(1);
         songAr21.setName("songAr21");
-        SongAr songAr22=new SongAr();
+        SongAr songAr22 = new SongAr();
         songAr22.setId(2);
         songAr22.setName("songAr22");
         ars2.add(songAr21);
         ars2.add(songAr22);
         song2.setAr(ars2);
-        SongAl al2=new SongAl();
+        SongAl al2 = new SongAl();
         al2.setId(12);
         al2.setName("al2");
         song2.setAl(al2);
@@ -87,16 +87,16 @@ public class PlayListController {
         song3.setName("song3");
         song3.setMv(30);
         List<SongAr> ars3 = new ArrayList<>();
-        SongAr songAr31=new SongAr();
+        SongAr songAr31 = new SongAr();
         songAr31.setId(1);
         songAr31.setName("songAr31");
-        SongAr songAr32=new SongAr();
+        SongAr songAr32 = new SongAr();
         songAr32.setId(2);
         songAr32.setName("songAr32");
         ars3.add(songAr31);
         ars3.add(songAr32);
         song3.setAr(ars3);
-        SongAl al3=new SongAl();
+        SongAl al3 = new SongAl();
         al3.setId(123);
         al3.setName("al3");
         song3.setAl(al3);
@@ -122,4 +122,32 @@ public class PlayListController {
         jsonObject.put("songs", songs);
         return jsonObject;
     }
+
+    @RequestMapping(value = "/highquality/tags", method = RequestMethod.GET)
+    @ResponseBody
+    public JSONObject highqualityTags() {
+
+        PlaylistHighqualityTag playlistHighqualityTag = new PlaylistHighqualityTag();
+        playlistHighqualityTag.setId(1);
+        playlistHighqualityTag.setName("tag1");
+
+        PlaylistHighqualityTag playlistHighqualityTag2 = new PlaylistHighqualityTag();
+        playlistHighqualityTag2.setId(2);
+        playlistHighqualityTag2.setName("tag2");
+
+        PlaylistHighqualityTag playlistHighqualityTag3 = new PlaylistHighqualityTag();
+        playlistHighqualityTag3.setId(3);
+        playlistHighqualityTag3.setName("tag3");
+
+        List<PlaylistHighqualityTag> playlistHighqualityTags = new ArrayList<>();
+        playlistHighqualityTags.add(playlistHighqualityTag);
+        playlistHighqualityTags.add(playlistHighqualityTag2);
+        playlistHighqualityTags.add(playlistHighqualityTag3);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("tags", playlistHighqualityTags);
+        return jsonObject;
+
+    }
+
+
 }
