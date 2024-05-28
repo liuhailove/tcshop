@@ -115,4 +115,7 @@ public class Video {
         this.upUser = upUser;
         this.pic = pic;
     }
+
+    public Video() {
+    }
 }
