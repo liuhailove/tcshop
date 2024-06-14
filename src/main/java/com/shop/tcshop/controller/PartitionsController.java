@@ -314,10 +314,10 @@ public class PartitionsController {
     @ResponseBody
     public Result liveRoomList(@RequestParam Integer parentAreaId, @RequestParam(required = false) Integer areaId, @RequestParam int page, @RequestParam int pageSize) {
         List<Room> rooms = new ArrayList<>();
-        Room r1 = new Room(1, "henan", 1, "zhouhou", 1, "u1", "face1", "desc1", new Date(), "room1", 1, true, "abcdef");
-        Room r2 = new Room(2, "henan2", 2, "zhouhou2", 2, "u1", "face1", "desc1", new Date(), "room2", 2, true, "abcdef");
-        Room r3 = new Room(3, "guangzhou", 3, "shenzhen", 3, "u2", "face1", "desc1", new Date(), "room3", 3, true, "abcdef");
-        Room r4 = new Room(4, "guangzhou1", 4, "shenzhen", 4, "u2", "face4", "desc4", new Date(), "room4", 4, true, "abcdef");
+        Room r1 = new Room(1, "henan", 1, "zhouhou", 1, "u1", "face1", "desc1", new Date(), "room1", 1, 100, "abcdef", "http://localhost:8080/images/huli.jpeg", 1);
+        Room r2 = new Room(2, "henan2", 2, "zhouhou2", 2, "u1", "face1", "desc1", new Date(), "room2", 2, 100, "abcdef", "http://localhost:8080/images/huli.jpeg", 1);
+        Room r3 = new Room(3, "guangzhou", 3, "shenzhen", 3, "u2", "face1", "desc1", new Date(), "room3", 3, 100, "abcdef", "http://localhost:8080/images/huli.jpeg", 1);
+        Room r4 = new Room(4, "guangzhou1", 4, "shenzhen", 4, "u2", "face4", "desc4", new Date(), "room4", 4, 100, "abcdef", "http://localhost:8080/images/huli.jpeg", 1);
         rooms.add(r1);
         rooms.add(r2);
         rooms.add(r3);
@@ -347,7 +347,7 @@ public class PartitionsController {
     @RequestMapping(value = "/live/room/info", method = RequestMethod.GET)
     @ResponseBody
     public Result liveRoomInfo(@RequestParam Integer roomId) {
-        Room r1 = new Room(1, "henan", 1, "zhouhou", 1, "u1", "face1", "这是一个诉说有关宠物饲养的房间", new Date(), "宠物饲养", 1, true, "abcdef");
+        Room r1 = new Room(1, "henan", 1, "zhouhou", 1, "u1", "face1", "这是一个诉说有关宠物饲养的房间", new Date(), "宠物饲养", 1, 100, "abcdef", "http://localhost:8080/images/huli.jpeg", 1);
         return new Result("1", r1);
     }
 
@@ -432,14 +432,14 @@ public class PartitionsController {
         // 配置支持 HTTPS
         HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
         restTemplate.setRequestFactory(requestFactory);
-        if(pic.contains("@480w_300h.jpg")){
-            pic=pic.replace("@480w_300h.jpg","");
+        if (pic.contains("@480w_300h.jpg")) {
+            pic = pic.replace("@480w_300h.jpg", "");
         }
-        if(pic.contains("@200w_125h.jpg")){
-            pic=pic.replace("@200w_125h.jpg","");
+        if (pic.contains("@200w_125h.jpg")) {
+            pic = pic.replace("@200w_125h.jpg", "");
         }
-        if(pic.contains("@320w_200h.jpg")){
-            pic=pic.replace("@320w_200h.jpg","");
+        if (pic.contains("@320w_200h.jpg")) {
+            pic = pic.replace("@320w_200h.jpg", "");
         }
         try {
             ResponseEntity<byte[]> response = restTemplate.getForEntity(pic, byte[].class);

@@ -1,12 +1,10 @@
 package com.shop.tcshop.models.fe;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 public class PlayUrl {
 
-    @JsonProperty("current_quality")
+//    @JsonProperty("current_quality")
     private int currentQuality;
 
     private List<Url> durl;

@@ -32,7 +32,7 @@ public class ArtistController {
         Artist artist3 = new Artist();
         artist3.setId(3);
         artist3.setName("artist3");
-        artist3.setImg1v1Url("http://localhost:8080/images/shangding.jpg");
+        artist3.setImg1v1Url("http://localhost:8080/images/shanding.jpg");
 
         List<Artist> artists = new ArrayList<>();
         artists.add(artist);

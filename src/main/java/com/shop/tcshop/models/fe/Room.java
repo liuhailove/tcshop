@@ -15,10 +15,12 @@ public class Room {
     private String title;
     private int roomid;
     private int room_id;
-    private boolean online;
+    private int online;
     private String user_cover;
+    private String userCover;
+    private int liveStatus;
 
-    public Room(int parentAreaId, String parentAreaName, int areaId, String areaName, int uId, String uname, String face, String description, Date liveTime, String title, int roomid, boolean online, String user_cover) {
+    public Room(int parentAreaId, String parentAreaName, int areaId, String areaName, int uId, String uname, String face, String description, Date liveTime, String title, int roomid, int online, String user_cover, String userCover, int liveStatus) {
         this.parentAreaId = parentAreaId;
         this.parentAreaName = parentAreaName;
         this.areaId = areaId;
@@ -33,6 +35,8 @@ public class Room {
         this.room_id = roomid;
         this.online = online;
         this.user_cover = user_cover;
+        this.userCover = userCover;
+        this.liveStatus = liveStatus;
     }
 
     public int getParentAreaId() {
@@ -123,11 +127,11 @@ public class Room {
         this.roomid = roomid;
     }
 
-    public boolean isOnline() {
+    public int getOnline() {
         return online;
     }
 
-    public void setOnline(boolean online) {
+    public void setOnline(int online) {
         this.online = online;
     }
 
@@ -145,5 +149,21 @@ public class Room {
 
     public void setRoom_id(int room_id) {
         this.room_id = room_id;
+    }
+
+    public String getUserCover() {
+        return userCover;
+    }
+
+    public void setUserCover(String userCover) {
+        this.userCover = userCover;
+    }
+
+    public int getLiveStatus() {
+        return liveStatus;
+    }
+
+    public void setLiveStatus(int liveStatus) {
+        this.liveStatus = liveStatus;
     }
 }
